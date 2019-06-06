@@ -3,7 +3,7 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 
 import com.example.retrofit.api.MangadbAPI;
-import com.example.retrofit.api.MoviedbModule;
+import com.example.retrofit.api.MangadbModule;
 import com.example.retrofit.model.MangaPictures;
 import com.example.retrofit.model.MangaCharacterList;
 import com.example.retrofit.model.Picture;
@@ -18,7 +18,7 @@ public class MangadbRepository {
     MangadbAPI mangadbAPI;
 
     public MangadbRepository(){
-        mangadbAPI = MoviedbModule.getAPI();
+        mangadbAPI = MangadbModule.getAPI();
     }
 
     public LiveData<List<Character>> getCharacters(){

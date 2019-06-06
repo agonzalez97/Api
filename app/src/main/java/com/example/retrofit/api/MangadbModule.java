@@ -12,14 +12,13 @@ import okhttp3.Request;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MoviedbModule {
+public class MangadbModule {
     static MangadbAPI mangadbAPI;
 
     public static MangadbAPI getAPI(){
         if(mangadbAPI == null){
             final OkHttpClient client = new OkHttpClient.Builder()
                     .addInterceptor(new LoggingInterceptor())
-                   // .addInterceptor(new ApiKeyInterceptor())
                     .connectTimeout(15, TimeUnit.SECONDS)
                     .readTimeout(15,TimeUnit.SECONDS)
                     .build();
@@ -30,8 +29,10 @@ public class MoviedbModule {
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
+
             mangadbAPI = retrofit.create(MangadbAPI.class);
         }
+
         return mangadbAPI;
     }
 }
